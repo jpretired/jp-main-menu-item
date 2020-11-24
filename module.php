@@ -102,7 +102,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleLatestVersionUrl(): string
     {
-        return 'https://raw.githubusercontent.com/JustCarmen/webtrees-simple-menu/master/latest-version.txt';
+        return 'https://github.com/jpretired/jp-prirucka/releases/tag/v1.0';
     }
 
     /**
