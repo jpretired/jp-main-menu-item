@@ -3,24 +3,20 @@
 /**
  * Toto je modul pro položku Příručka v hlavním menu.
  * Zhotoveno podle JustCarmen jc-simple-menu-1, funkce konfigurace je zrušena.
- * JustCarmen webtrees modules
- * Copyright (C) 2009-2020 Carmen Pijpers-Knegt
+ * Copyright (C) 2020 josef
  *
- * Based on webtrees: online genealogy
- * Copyright (C) 2020 webtrees development team
- *
- * This file is part of JustCarmen webtrees modules
- *
- * JustCarmen webtrees modules is free software: you can redistribute it and/or modify
+ * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * JustCarmen webtrees modules is distributed in the hope that it will be useful,
+ *
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
+ *
  * You should have received a copy of the GNU General Public License
- * along with JustCarmen webtrees modules. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 declare(strict_types=1);
@@ -38,17 +34,20 @@ use Psr\Http\Message\ServerRequestInterface;
 use Fisharebest\Webtrees\Module\AbstractModule;
 use Fisharebest\Webtrees\Module\ModuleMenuTrait;
 use Fisharebest\Webtrees\Module\ModuleCustomTrait;
+use Fisharebest\Webtrees\Module\ModuleGlobalTrait;
 use Fisharebest\Webtrees\Module\ModuleMenuInterface;
 use Fisharebest\Webtrees\Module\ModuleCustomInterface;
+use Fisharebest\Webtrees\Module\ModuleGlobalInterface;
 use Fisharebest\Webtrees\Http\RequestHandlers\ModulesMenusAction;
 
 /**
  * Anonymous class - provide a custom menu option and page
  */
-return new class extends AbstractModule implements ModuleCustomInterface, ModuleMenuInterface
+return new class extends AbstractModule implements ModuleCustomInterface, ModuleMenuInterface, ModuleGlobalInterface
 {
     use ModuleCustomTrait;
     use ModuleMenuTrait;
+    use ModuleGlobalTrait;
 
     /**
      * How should this module be identified in the control panel, etc.?
@@ -152,4 +151,19 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
 
         return new Menu($menu_title, e($url), 'jp-prirucka' /* . e(strtolower($menu_title))*/);
     }
+
+    /**
+     * Raw content, to be added at the end of the <head> element.
+     * Typically, this will be <link> and <meta> elements.
+     *
+     * @return string
+     */
+    public function headContent(): string
+    {
+        $url = $this->assetUrl('css/prirucka.css');
+
+        return '
+            <link rel="stylesheet" href="' . e($url) . '">';
+    }
+    
 };
