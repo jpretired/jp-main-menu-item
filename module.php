@@ -92,7 +92,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleVersion(): string
     {
-        return '1.0';
+        return '1.0.2';
     }
 
     /**
@@ -102,7 +102,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleLatestVersionUrl(): string
     {
-        return 'https://github.com/jpretired/jp-prirucka/releases/tag/v1.0';
+        return 'https://github.com/jpretired/jp-prirucka/releases/latest';
     }
 
     /**
@@ -111,7 +111,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     public function boot(): void
     {
         // Register a namespace for our views.
-        View::registerNamespace($this->name(), $this->resourcesFolder() . 'views/');
+        // View::registerNamespace($this->name(), $this->resourcesFolder() . 'views/');
     }
 
      /**
