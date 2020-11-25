@@ -25,6 +25,7 @@ namespace JpNamespace;
 
 use Fisharebest\Webtrees\Auth;
 use Fisharebest\Webtrees\I18N;
+use Fisharebest\Localization\Translation;
 use Fisharebest\Webtrees\Menu;
 use Fisharebest\Webtrees\Tree;
 use Fisharebest\Webtrees\View;
@@ -56,7 +57,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function title(): string
     {
-        return 'Příručka webtrees';
+        return I18N::translate('webtrees Manual');
     }
 
     /**
@@ -67,7 +68,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     public function description(): string
     {
         /* I18N: Description of the “Simple Menu” module */
-        return I18N::translate('Easily add an extra mainmenu item and page to your webtrees website.');
+        return I18N::translate('Add an extra mainmenu item to call webtrees Manual.');
     }
 
     /**
@@ -92,7 +93,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleVersion(): string
     {
-        return '1.0.2';
+        return '1.0.3';
     }
 
     /**
@@ -125,6 +126,20 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     }
 
     /**
+     * Additional/updated translations.
+     *
+     * @param string $language
+     *
+     * @return array<string,string>
+     */
+    public function customTranslations(string $language): array
+    {
+        $languageFile = $this->resourcesFolder() . 'lang/' . $language . '/messages.mo';
+
+        return file_exists($languageFile) ? (new Translation($languageFile))->asArray() : [];
+    }
+
+    /**
      * The default position for this menu.  It can be changed in the control panel.
      *
      * @return int
@@ -147,7 +162,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
             return '';
         }
         $url = 'https://manu.jprodina.cz';
-        $menu_title = 'Příručka';
+        $menu_title = I18N::translate('Manual');
 
         return new Menu($menu_title, e($url), 'jp-prirucka' /* . e(strtolower($menu_title))*/);
     }
