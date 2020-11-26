@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jp-prirucka\n"
-"POT-Creation-Date: 2020-11-25 18:58+0100\n"
-"PO-Revision-Date: 2020-11-25 19:00+0100\n"
+"POT-Creation-Date: 2020-11-26 19:11+0100\n"
+"PO-Revision-Date: 2020-11-26 19:14+0100\n"
 "Last-Translator: Josef Prause <josef.prause@gmail.com>\n"
 "Language-Team: josef.prause@gmail.com\n"
 "Language: cs\n"
@@ -16,14 +16,17 @@ msgstr ""
 "X-Poedit-KeywordsList: translate\n"
 "X-Poedit-SearchPath-0: module.php\n"
 
-#: module.php:59
-msgid "webtrees Manual"
-msgstr "Přiručka webtrees"
+#: module.php:61
+msgid "Main menu item"
+msgstr "Položka hlavního menu"
 
-#: module.php:70
-msgid "Add an extra mainmenu item to call webtrees Manual."
-msgstr "Přidá do hlavního menu odkaz na Příručku webtrees"
+#: module.php:72
+msgid "Add an extra mainmenu item as a link to webtrees Manual."
+msgstr "Přidá do hlavního menu položku jako odkaz na Příručku webtrees."
 
-#: module.php:150
+#: module.php:166
 msgid "Manual"
 msgstr "Příručka"
+
+#~ msgid "webtrees Manual"
+#~ msgstr "Přiručka webtrees"

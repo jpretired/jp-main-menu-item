@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Toto je modul pro položku Příručka v hlavním menu.
- * Zhotoveno podle JustCarmen jc-simple-menu-1, funkce konfigurace je zrušena.
+ * This module adds a new item to main menu. 
+ * In website Naše rodina it is used for link to webtrees Manual.
+ * The code is inspired by JustCarmen's jc-simple-menu-1.
  * Copyright (C) 2020 josef
  *
  * This program is free software: you can redistribute it and/or modify
@@ -57,7 +58,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function title(): string
     {
-        return I18N::translate('webtrees Manual');
+        return I18N::translate('Main menu item');
     }
 
     /**
@@ -68,7 +69,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     public function description(): string
     {
         /* I18N: Description of the “Simple Menu” module */
-        return I18N::translate('Add an extra mainmenu item to call webtrees Manual.');
+        return I18N::translate('Add an extra mainmenu item as a link to webtrees Manual.');
     }
 
     /**
@@ -164,7 +165,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         $url = 'https://manu.jprodina.cz';
         $menu_title = I18N::translate('Manual');
 
-        return new Menu($menu_title, e($url), 'jp-prirucka' /* . e(strtolower($menu_title))*/);
+        return new Menu($menu_title, e($url), 'jp-prirucka');
     }
 
     /**
