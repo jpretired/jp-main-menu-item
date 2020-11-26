@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2020-11-26 19:27+0100\n"
+"PO-Revision-Date: 2020-11-26 19:39+0100\n"
+"Last-Translator: Josef Prause <josef.prause@gmail.com>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-SearchPath-0: module.php\n"
+
+#: module.php:61
+msgid "Main menu item"
+msgstr "Hauptmenüpunkt"
+
+#: module.php:72
+msgid "Add an extra mainmenu item as a link to webtrees Manual."
+msgstr "Fügen Sie einen zusätzlichen Hauptmenüpunkt als Link zum Webtrees-Handbuch hinzu."
+
+#: module.php:166
+msgid "Manual"
+msgstr "Handbuch"
