@@ -50,7 +50,8 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
     use ModuleCustomTrait;
     use ModuleMenuTrait;
     use ModuleGlobalTrait;
-
+    
+    private $lang_switch;
     /**
      * How should this module be identified in the control panel, etc.?
      *
@@ -94,7 +95,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleVersion(): string
     {
-        return '1.0.5';
+        return '1.0.6';
     }
 
     /**
@@ -104,7 +105,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleLatestVersionUrl(): string
     {
-        return 'https://github.com/jpretired/jp-prirucka/releases/latest';
+        return 'https://github.com/jpretired/jp-main-menu-item/releases/latest';
     }
 
     /**
@@ -135,6 +136,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customTranslations(string $language): array
     {
+        $this->lang_switch = $language;
         $languageFile = $this->resourcesFolder() . 'lang/' . $language . '/messages.mo';
 
         return file_exists($languageFile) ? (new Translation($languageFile))->asArray() : [];
@@ -162,10 +164,17 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         if ($tree === null) {
             return '';
         }
-        $url = 'https://manu.jprodina.cz';
+        $url = '';
+        switch ($this->lang_switch) {
+            case 'cs':
+                $url = 'https://manu.jprodina.cz';
+                break;
+            default:
+                $url = 'https://webtreesmanual.com';
+        }
         $menu_title = I18N::translate('Manual');
 
-        return new Menu($menu_title, e($url), 'jp-prirucka');
+        return new Menu($menu_title, e($url), 'jp-main-menu-item');
     }
 
     /**
@@ -176,10 +185,9 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function headContent(): string
     {
-        $url = $this->assetUrl('css/prirucka.css');
+        $url = $this->assetUrl('css/main-menu-item.css');
 
-        return '
-            <link rel="stylesheet" href="' . e($url) . '">';
+        return '<link rel="stylesheet" href="' . e($url) . '">';
     }
     
 };
