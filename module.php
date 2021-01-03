@@ -95,7 +95,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
      */
     public function customModuleVersion(): string
     {
-        return '1.0.6';
+        return '1.0.7';
     }
 
     /**
@@ -167,6 +167,7 @@ return new class extends AbstractModule implements ModuleCustomInterface, Module
         $url = '';
         switch ($this->lang_switch) {
             case 'cs':
+            case 'sk':
                 $url = 'https://manu.jprodina.cz';
                 break;
             default:
